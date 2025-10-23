@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ٹائپ رائٹر ایفیکٹ نیون گلو - زوہیب فاروق</title>
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #66b3ff; /* نیلا رنگ ڈیفالٹ */
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.6;
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+      transition: color 0.3s ease;
+    }
+    
+    /* رنگ کے اختیارات */
+    .color-options {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      z-index: 1000;
+    }
+    
+    .color-options h4 {
+      margin: 0 0 10px 0;
+      color: #fff;
+      font-size: 1rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .color-option {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+      cursor: pointer;
+    }
+    
+    .color-option input {
+      display: none;
+    }
+    
+    .color-dot {
+      width: 22px; /* سائز بڑھایا */
+      height: 22px; /* سائز بڑھایا */
+      border-radius: 50%;
+      margin-right: 10px;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    
+    .color-option input:checked + .color-dot {
+      border-color: #fff;
+      transform: scale(1.2);
+    }
+    
+    .color-label {
+      color: #fff;
+      font-size: 1rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    /* اوپر جانے کا بٹن */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #66b3ff;
+      color: #0a0a0a;
+      width: 55px; /* سائز بڑھایا */
+      height: 55px; /* سائز بڑھایا */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      font-size: 1.7rem; /* فونٹ سائز بڑھایا */
+      box-shadow: 0 0 20px rgba(102, 179, 255, 0.5);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    
+    .scroll-to-top:hover {
+      background: #3399ff;
+      transform: translateY(-3px);
+      box-shadow: 0 0 30px rgba(102, 179, 255, 0.8);
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      font-size: 1.15rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    h1 {
+      color: #66b3ff;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #66b3ff;
+      font-size: 2.6rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .demo-section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 40px 20px;
+      margin: 40px 0;
+      box-shadow: 0 0 20px rgba(102, 179, 255, 0.1);
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .subtitle {
+      font-size: 2.2rem; /* فونٹ سائز بڑھایا */
+      letter-spacing: 1px;
+      display: inline-block;
+      position: relative;
+      text-shadow: 0 0 10px currentColor;
+      min-height: 60px;
+    }
+
+    .subtitle::after {
+      content: "|";
+      position: absolute;
+      right: -10px;
+      animation: blink 0.8s infinite;
+      color: currentColor;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+    
+    .code-section {
+      background: #1a1a1a;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 40px 0;
+      text-align: left;
+      position: relative;
+      overflow-x: auto;
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .code-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 10px;
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .copy-btn {
+      background: #66b3ff;
+      color: #0a0a0a;
+      border: none;
+      padding: 9px 16px; /* سائز بڑھایا */
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s;
+      font-size: 1.1rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .copy-btn:hover {
+      background: #3399ff;
+      box-shadow: 0 0 10px #66b3ff;
+    }
+    
+    .code-block {
+      color: #f8f8f2;
+      font-family: 'Courier New', monospace;
+      font-size: 16px; /* فونٹ سائز بڑھایا */
+      line-height: 1.5;
+      white-space: pre;
+    }
+    
+    .explanation {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+      text-align: right;
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .explanation h2 {
+      color: #66b3ff;
+      text-shadow: 0 0 5px #66b3ff;
+      font-size: 2rem; /* فونٹ سائز بڑھایا */
+      text-align: center;
+    }
+    
+    .summary {
+      background: rgba(102, 179, 255, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+      text-align: right;
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .summary h2 {
+      color: #66b3ff;
+      text-shadow: 0 0 5px #66b3ff;
+      font-size: 2rem; /* فونٹ سائز بڑھایا */
+      text-align: center;
+    }
+    
+    .note {
+      color: #ffcc00;
+      font-style: italic;
+      margin: 20px 0;
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+      text-align: center;
+    }
+    
+    .react-section {
+      background: rgba(97, 218, 251, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px 0;
+      text-align: right;
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+    }
+    
+    .react-section h2 {
+      color: #66b3ff;
+      text-shadow: 0 0 5px #66b3ff;
+      font-size: 2rem; /* فونٹ سائز بڑھایا */
+      text-align: center;
+    }
+    
+    .step {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 5px;
+      padding: 15px;
+      margin: 15px 0;
+      border-right: 3px solid #66b3ff;
+      font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+      text-align: right;
+    }
+    
+    .step h3 {
+      color: #66b3ff;
+      margin-top: 0;
+      font-size: 1.4rem; /* فونٹ سائز بڑھایا */
+      text-align: left; /* صرف ہیڈنگ LEFT ALIGN */
+    }
+    
+    .step-number {
+      display: inline-block;
+      background: #66b3ff;
+      color: #0a0a0a;
+      width: 28px; /* سائز بڑھایا */
+      height: 28px; /* سائز بڑھایا */
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px; /* سائز بڑھایا */
+      margin-left: 10px;
+      font-weight: bold;
+      font-size: 1.1rem; /* فونٹ سائز بڑھایا */
+    }
+
+    /* ریسپانسیو ڈیزائن */
+    @media (max-width: 768px) {
+      .color-options {
+        top: 10px;
+        left: 10px;
+        padding: 10px;
+      }
+      
+      .scroll-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 50px; /* سائز بڑھایا */
+        height: 50px; /* سائز بڑھایا */
+        font-size: 1.5rem; /* فونٹ سائز بڑھایا */
+      }
+    }
+
+    @media (max-width: 430px) {
+      .container {
+        max-width: 430px;
+        padding: 15px;
+        font-size: 1.1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      h1 {
+        font-size: 2rem; /* فونٹ سائز بڑھایا */
+        margin-bottom: 20px;
+      }
+      
+      .subtitle {
+        font-size: 1.8rem; /* فونٹ سائز بڑھایا */
+        min-height: 50px;
+      }
+      
+      .demo-section {
+        padding: 30px 15px;
+        margin: 30px 0;
+        font-size: 1.1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .code-section {
+        padding: 15px;
+        margin: 30px 0;
+        font-size: 1.1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .code-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        font-size: 1.1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .code-block {
+        font-size: 14px; /* فونٹ سائز بڑھایا */
+      }
+      
+      .explanation, .summary, .react-section {
+        padding: 15px;
+        margin: 20px 0;
+        font-size: 1.1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .step {
+        padding: 12px;
+        margin: 12px 0;
+        font-size: 1.1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .step h3 {
+        font-size: 1.3rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .explanation h2, .summary h2, .react-section h2 {
+        font-size: 1.7rem; /* فونٹ سائز بڑھایا */
+      }
+    }
+
+    @media (max-width: 390px) {
+      .container {
+        max-width: 390px;
+        padding: 10px;
+        font-size: 1.05rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      h1 {
+        font-size: 1.8rem; /* فونٹ سائز بڑھایا */
+        margin-bottom: 15px;
+      }
+      
+      .subtitle {
+        font-size: 1.6rem; /* فونٹ سائز بڑھایا */
+        min-height: 45px;
+        letter-spacing: 0.5px;
+      }
+      
+      .demo-section {
+        padding: 20px 10px;
+        margin: 20px 0;
+        font-size: 1.05rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .code-section {
+        padding: 10px;
+        margin: 20px 0;
+        font-size: 1.05rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .code-block {
+        font-size: 13px; /* فونٹ سائز بڑھایا */
+      }
+      
+      .explanation, .summary, .react-section {
+        padding: 12px;
+        margin: 15px 0;
+        font-size: 1.05rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .step {
+        padding: 10px;
+        margin: 10px 0;
+        font-size: 1.05rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .step h3 {
+        font-size: 1.25rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .copy-btn {
+        padding: 7px 13px; /* سائز بڑھایا */
+        font-size: 1.05rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .explanation h2, .summary h2, .react-section h2 {
+        font-size: 1.6rem; /* فونٹ سائز بڑھایا */
+      }
+    }
+
+    @media (max-width: 375px) {
+      .container {
+        max-width: 375px;
+        padding: 8px;
+        font-size: 1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      h1 {
+        font-size: 1.7rem; /* فونٹ سائز بڑھایا */
+        margin-bottom: 12px;
+      }
+      
+      .subtitle {
+        font-size: 1.5rem; /* فونٹ سائز بڑھایا */
+        min-height: 40px;
+      }
+      
+      .demo-section {
+        padding: 15px 8px;
+        margin: 15px 0;
+        font-size: 1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .code-section {
+        padding: 8px;
+        margin: 15px 0;
+        font-size: 1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .code-block {
+        font-size: 12px; /* فونٹ سائز بڑھایا */
+        line-height: 1.4;
+      }
+      
+      .explanation, .summary, .react-section {
+        padding: 10px;
+        margin: 12px 0;
+        font-size: 1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .step {
+        padding: 8px;
+        margin: 8px 0;
+        font-size: 1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .step h3 {
+        font-size: 1.2rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .copy-btn {
+        padding: 6px 11px; /* سائز بڑھایا */
+        font-size: 1rem; /* فونٹ سائز بڑھایا */
+      }
+      
+      .explanation h2, .summary h2, .react-section h2 {
+        font-size: 1.5rem; /* فونٹ سائز بڑھایا */
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- رنگ کے اختیارات -->
+  <div class="color-options">
+    <h4>فونٹ رنگ:</h4>
+    <div class="color-option">
+      <input type="radio" id="color-blue" name="color" value="#66b3ff" checked>
+      <label for="color-blue" class="color-dot" style="background: #66b3ff;"></label>
+      <span class="color-label">نیلا</span>
+    </div>
+    <div class="color-option">
+      <input type="radio" id="color-green" name="color" value="#00ffc3">
+      <label for="color-green" class="color-dot" style="background: #00ffc3;"></label>
+      <span class="color-label">سبز</span>
+    </div>
+    <div class="color-option">
+      <input type="radio" id="color-pink" name="color" value="#ff66cc">
+      <label for="color-pink" class="color-dot" style="background: #ff66cc;"></label>
+      <span class="color-label">گلابی</span>
+    </div>
+    <div class="color-option">
+      <input type="radio" id="color-yellow" name="color" value="#ffcc00">
+      <label for="color-yellow" class="color-dot" style="background: #ffcc00;"></label>
+      <span class="color-label">پیلا</span>
+    </div>
+  </div>
+
+  <!-- اوپر جانے کا بٹن -->
+  <button class="scroll-to-top" onclick="scrollToTop()">↑</button>
+
+  <div class="container">
+    <h1>ٹائپ رائٹر ایفیکٹ نیون گلو کے ساتھ</h1>
+    
+    <div class="demo-section">
+      <h2>لائیو ڈیمو</h2>
+      <div class="subtitle" id="subtitle"></div>
+    </div>
+    
+    <div class="code-section">
+      <div class="code-header">
+        <h3>مکمل کوڈ (Neon Glow + آسان وضاحت کے ساتھ)</h3>
+        <button class="copy-btn" onclick="copyCode()">کوڈ کاپی کریں</button>
+      </div>
+      <pre class="code-block"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ur"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+  &lt;title&gt;ٹائپ رائٹر ایفیکٹ نیون گلو کے ساتھ&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      background: #0a0a0a;  /* کالا بیک گراونڈ */
+      color: #66b3ff;       /* نیلا رنگ */
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      margin-top: 120px;
+    }
+
+    .subtitle {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      display: inline-block;
+      position: relative;
+      text-shadow: 0 0 10px currentColor; /* نیون گلو ایفیکٹ */
+    }
+
+    /* جھپکنے والا کرسر (|) */
+    .subtitle::after {
+      content: "|";
+      position: absolute;
+      right: -10px;
+      animation: blink 0.8s infinite;
+      color: currentColor;
+    }
+
+    /* کرسر کو آن آف دکھانے کی حرکت */
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;!-- جہاں ٹائپنگ ٹیکسٹ دکھے گا --&gt;
+  &lt;h2 class="subtitle" id="subtitle"&gt;&lt;/h2&gt;
+
+  &lt;script&gt;
+    /* 🔹 وہ جملے جو باری باری لکھے جائیں گے */
+    const messages = [
+      "🚀 Welcome to the Future 🚀",
+      "✨ The best Tpewriter effect 2025 ✨",
+      "🌌 Designed by Zohaib Farooq 🌌"
+    ];
+
+    let text = "";          // جو لکھا جا رہا ہے
+    let index = 0;          // کون سا جملہ ہے
+    let isDeleting = false; // کیا مٹا رہے ہیں یا لکھ رہے ہیں؟
+
+    function typeEffect() {
+      const subtitleEl = document.getElementById("subtitle");
+      const currentMessage = messages[index];
+
+      let speed = 120; // لکھنے کی رفتار
+      if (isDeleting) speed = 60; // مٹانے میں تیزی
+
+      /* 🔸 substring() کا استعمال:  
+         کسی لفظ یا جملے کے صرف کچھ حروف لینا۔  
+         مثال: "Hello".substring(0, 3) → "Hel"
+      */
+
+      if (!isDeleting) {
+        // ایک ایک کر کے حروف بڑھتے جائیں
+        text = currentMessage.substring(0, text.length + 1);
+      } else {
+        // ایک ایک کر کے حروف مٹتے جائیں
+        text = currentMessage.substring(0, text.length - 1);
+      }
+
+      subtitleEl.textContent = text;
+
+      /* 💡 setTimeout() کیا ہے؟
+         یہ فنکشن کسی کام کو "تھوڑا وقت گزرنے کے بعد" دوبارہ چلاتا ہے۔
+         مثال کے طور پر:
+         setTimeout(کام, وقت)
+         مطلب: اتنے ملی سیکنڈ بعد یہ کام دوبارہ کرنا۔
+      */
+
+      // جب پورا جملہ لکھ لیا جائے تو 1 سیکنڈ بعد مٹانا شروع کرو
+      if (!isDeleting && text === currentMessage) {
+        setTimeout(() => (isDeleting = true), 1000);
+      } 
+      // جب سب مٹ جائے تو اگلا جملہ شروع کرو
+      else if (isDeleting && text === "") {
+        isDeleting = false;
+        index = (index + 1) % messages.length; // اگلے جملے پر جاؤ
+      }
+
+      // فنکشن خود کو دوبارہ بلاتا ہے تاکہ ایفیکٹ چلتا رہے
+      setTimeout(typeEffect, speed);
+    }
+
+    // صفحہ لوڈ ہوتے ہی ایفیکٹ شروع کرو
+    typeEffect();
+  &lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <!-- ری ایکٹ JS کوڈ سیکشن -->
+    <div class="code-section">
+      <div class="code-header">
+        <h3>ری ایکٹ JS ٹائپ رائٹر ایفیکٹ (مکمل کوڈ)</h3>
+        <button class="copy-btn" onclick="copyReactCode()">ری ایکٹ کوڈ کاپی کریں</button>
+      </div>
+      <pre class="code-block"><code>import { useState, useEffect } from "react";
+
+function Subtitle() {
+  // 🔹 وہ جملے جو باری باری لکھے جائیں گے
+  const messages = [
+    "🚀 Welcome to the Future 🚀",
+    "✨ Powered by React + Vite ✨", 
+    "🌌 Designed by Zohaib Farooq. 🌌"
+  ];
+
+  // 🔹 ری ایکٹ اسٹیٹس
+  const [text, setText] = useState("");          // جو لکھا جا رہا ہے
+  const [index, setIndex] = useState(0);         // کون سا جملہ ہے
+  const [isDeleting, setIsDeleting] = useState(false); // کیا مٹا رہے ہیں؟
+
+  useEffect(() => {
+    const currentMessage = messages[index];
+    let speed = 120; // لکھنے کی رفتار
+    if (isDeleting) speed = 60; // مٹانے میں تیزی
+
+    const timeout = setTimeout(() => {
+      setText(prev =>
+        isDeleting
+          ? currentMessage.substring(0, prev.length - 1) // ایک حرف مٹاؤ
+          : currentMessage.substring(0, prev.length + 1) // ایک حرف بڑھاؤ
+      );
+
+      // جب پورا جملہ لکھ لیا جائے تو 1 سیکنڈ بعد مٹانا شروع کرو
+      if (!isDeleting && text === currentMessage) {
+        setTimeout(() => setIsDeleting(true), 1000);
+      } 
+      // جب سب مٹ جائے تو اگلا جملہ شروع کرو
+      else if (isDeleting && text === "") {
+        setIsDeleting(false);
+        setIndex((prev) => (prev + 1) % messages.length); // اگلے جملے پر جاؤ
+      }
+    }, speed);
+
+    // کلین اپ: پرانے ٹائم آؤٹ کو صاف کرو
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, index, messages]);
+
+  return &lt;h2 className="subtitle"&gt;{text}&lt;/h2&gt;;
+}
+
+export default Subtitle;</code></pre>
+    </div>
+    
+    <div class="react-section">
+      <h2>🧠 ری ایکٹ جے ایس میں ٹائپ رائٹر ایفیکٹ - آسان وضاحت</h2>
+      
+      <div class="step">
+        <h3><span class="step-number">1</span> Import</h3>
+        <p><code>import { useState, useEffect } from "react";</code></p>
+        <p><strong>مطلب:</strong> ہم React کے اندر سے دو خاص "hooks" لے رہے ہیں:</p>
+        <p><strong>useState</strong> — چیزوں کی موجودہ حالت (state) یاد رکھنے کے لیے</p>
+        <p><strong>useEffect</strong> — کوئی کام بار بار یا کسی خاص وقت پر چلانے کے لیے</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">2</span> Messages Array</h3>
+        <p><code>const messages = ["🚀 Welcome to the Future 🚀", "✨ Powered by React + Vite ✨", "🌌 Designed by Zohaib Farooq. 🌌"];</code></p>
+        <p><strong>مطلب:</strong> یہ تین جملے ہیں جو باری باری اسکرین پر لکھے جائیں گے۔</p>
+        <p>جیسے: پہلا جملہ لکھا جائے گا، پھر مٹایا جائے گا، پھر دوسرا جملہ آئے گا… اور یہ سلسلہ چلتا رہے گا۔</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">3</span> useState Hooks</h3>
+        <p><code>const [text, setText] = useState("");</code></p>
+        <p><code>const [index, setIndex] = useState(0);</code></p>
+        <p><code>const [isDeleting, setIsDeleting] = useState(false);</code></p>
+        <p><strong>مطلب:</strong> یہ تین states ہیں:</p>
+        <p><strong>text</strong> → جو لفظ اس وقت اسکرین پر لکھا جا رہا ہے</p>
+        <p><strong>index</strong> → کون سا جملہ چل رہا ہے (پہلا؟ دوسرا؟ تیسرا؟)</p>
+        <p><strong>isDeleting</strong> → کیا ہم لفظ لکھ رہے ہیں یا مٹا رہے ہیں؟</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">4</span> useEffect Hook</h3>
+        <p><code>useEffect(() => { ... }, [text, isDeleting, index, messages]);</code></p>
+        <p><strong>مطلب:</strong> یہ کوڈ ہر بار چلے گا جب text, isDeleting, یا index بدلے۔</p>
+        <p>یعنی جب بھی کوئی نیا حرف لکھا یا مٹایا جائے، React دوبارہ ایفیکٹ چلائے گا۔</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">5</span> Typing Speed</h3>
+        <p><code>let speed = 120;</code></p>
+        <p><code>if (isDeleting) speed = 60;</code></p>
+        <p><strong>مطلب:</strong> جب ہم لکھ رہے ہیں تو رفتار 120ms فی حرف ہے، اور جب مٹا رہے ہیں تو 60ms (تھوڑا تیز) ہے۔</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">6</span> Text Change Logic</h3>
+        <p><code>setText(prev => isDeleting ? currentMessage.substring(0, prev.length - 1) : currentMessage.substring(0, prev.length + 1));</code></p>
+        <p><strong>مطلب:</strong> اگر ہم لکھ رہے ہیں تو حرف ایک بڑھاؤ، اگر ہم مٹا رہے ہیں تو حرف ایک گھٹاؤ</p>
+        <p><strong>substring(0, n)</strong> ایک لفظ کے پہلے n حروف واپس کرتا ہے۔</p>
+        <p>مثال: "Hello".substring(0, 3) → نتیجہ "Hel"</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">7</span> اگلا مرحلہ کب؟</h3>
+        <p><code>if (!isDeleting && text === currentMessage) { setTimeout(() => setIsDeleting(true), 1000); }</code></p>
+        <p><strong>مطلب:</strong> جب پورا جملہ مکمل ہو جائے، تو ایک سیکنڈ بعد اسے مٹانا شروع کرو۔</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">8</span> اگلا جملہ کب؟</h3>
+        <p><code>else if (isDeleting && text === "") { setIsDeleting(false); setIndex((prev) => (prev + 1) % messages.length); }</code></p>
+        <p><strong>مطلب:</strong> جب مٹانا ختم ہو جائے (یعنی text خالی ہو جائے) تو اگلے جملے پر چلے جاؤ۔</p>
+        <p><strong>% messages.length</strong> اس لیے کہ آخری جملے کے بعد دوبارہ پہلے پر آ جائے۔</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">9</span> Cleanup</h3>
+        <p><code>return () => clearTimeout(timeout);</code></p>
+        <p><strong>مطلب:</strong> اگر React کمپوننٹ دوبارہ چلے تو پرانے setTimeout کو بند کر دو — ورنہ ایفیکٹ دو بار چلنے لگے گا۔</p>
+      </div>
+      
+      <div class="step">
+        <h3><span class="step-number">10</span> Return JSX</h3>
+        <p><code>return &lt;h2 className="subtitle"&gt;{text}&lt;/h2&gt;;</code></p>
+        <p><strong>مطلب:</strong> React آخر میں وہی چیز دکھائے گا جو text میں لکھی ہوئی ہے۔</p>
+        <p>یہی آہستہ آستہ بدلتا ہوا جملہ Typewriter کی طرح نظر آتا ہے۔</p>
+      </div>
+    </div>
+    
+    <div class="explanation">
+      <h2>🧠 سادہ سمجھنے والی وضاحت</h2>
+      <p><strong>🟢 substring(start, end)</strong></p>
+      <p>یہ String (یعنی لفظ یا جملہ) کا ایک حصہ نکالتا ہے۔</p>
+      <p>مثلاً:</p>
+      <p>"Zohaib".substring(0, 3)  // نتیجہ: "Zoh"</p>
+      <p>یہ 0 سے شروع ہوتا ہے اور 3 تک کے حروف لیتا ہے (لیکن 3 والا شامل نہیں ہوتا)۔</p>
+      <p>ہم نے اسی کو استعمال کیا تاکہ جملہ آہستہ آستہ ایک ایک حرف سے بنتا جائے یا مٹتا جائے۔</p>
+      
+      <p><strong>🟣 setTimeout(function, time)</strong></p>
+      <p>یہ فنکشن کمپیوٹر کو کہتا ہے:</p>
+      <p>"یہ کام اتنے وقت بعد دوبارہ کرنا۔"</p>
+      <p>مثلاً:</p>
+      <p>setTimeout(() => console.log("Hi"), 1000);</p>
+      <p>یہ ایک سیکنڈ بعد "Hi" لکھے گا۔</p>
+      <p>ہم نے اس کو استعمال کیا تاکہ ٹائپنگ آہستہ آستہ ہوتی رہے اور مسلسل چلتی دکھائی دے۔</p>
+    </div>
+    
+    <div class="summary">
+      <h2>🧠 آسان وضاحت (کوڈ کے آخر میں خلاصہ)</h2>
+      <p>messages میں ہم نے وہ تین جملے رکھے ہیں جو باری باری لکھے اور مٹائے جائیں گے۔</p>
+      <p>text ایک String ہے جو آہستہ آستہ بڑھتی یا گھٹتی ہے — جیسے کوئی بندہ ٹائپ کر رہا ہو۔</p>
+      <p>isDeleting بتاتا ہے کہ ہم لکھ رہے ہیں یا مٹا رہے ہیں۔</p>
+      <p>setTimeout(typeEffect, speed) ہر تھوڑی دیر بعد فنکشن دوبارہ چلاتا ہے تاکہ حرکت جاری رہے۔</p>
+      <p>CSS کا .subtitle::after حصہ کرسر (|) بناتا ہے جو مسلسل جھپکتا رہتا ہے۔</p>
+      
+      <p><strong>✨ خلاصہ:</strong></p>
+      <p>messages[] = جملے رکھنے کے لیے</p>
+      <p>substring() = ایک ایک حرف بڑھانے یا گھٹانے کے لیے</p>
+      <p>setTimeout() = حرکت بار بار دہرانے کے لیے</p>
+      <p>CSS ::after + keyframes = جھپکنے والا کرسر دکھانے کے لیے</p>
+    </div>
+    
+    <div class="note">
+      <p>نوٹ: یہ کوڈ براہ راست کاپی کر کے استعمال کیا جا سکتا ہے۔ منجانب! زوہیب فاروق۔</p>
+    </div>
+  </div>
+
+  <script>
+    // ٹائپ رائٹر ایفیکٹ کا کوڈ
+    const messages = [
+      "🚀 Welcome to the Future 🚀",
+      "✨ The best Tpewriter effect 2025 ✨",
+      "🌌 Designed by Zohaib Farooq 🌌"
+    ];
+
+    let text = "";
+    let index = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const subtitleEl = document.getElementById("subtitle");
+      const currentMessage = messages[index];
+
+      let speed = 120; // لکھنے کی رفتار
+      if (isDeleting) speed = 60; // مٹانے میں تیزی
+
+      if (!isDeleting) {
+        text = currentMessage.substring(0, text.length + 1);
+      } else {
+        text = currentMessage.substring(0, text.length - 1);
+      }
+
+      subtitleEl.textContent = text;
+
+      if (!isDeleting && text === currentMessage) {
+        setTimeout(() => (isDeleting = true), 1000);
+      } else if (isDeleting && text === "") {
+        isDeleting = false;
+        index = (index + 1) % messages.length;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+
+    // کوڈ کاپی کرنے کا فنکشن
+    function copyCode() {
+      const codeBlock = document.querySelector('.code-block code');
+      const textArea = document.createElement('textarea');
+      textArea.value = codeBlock.textContent;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      
+      const copyBtn = document.querySelector('.copy-btn');
+      const originalText = copyBtn.textContent;
+      copyBtn.textContent = 'کوڈ کاپی ہو گیا!';
+      setTimeout(() => {
+        copyBtn.textContent = originalText;
+      }, 2000);
+    }
+
+    // ری ایکٹ کوڈ کاپی کرنے کا فنکشن
+    function copyReactCode() {
+      const codeBlocks = document.querySelectorAll('.code-block code');
+      const reactCodeBlock = codeBlocks[1];
+      const textArea = document.createElement('textarea');
+      textArea.value = reactCodeBlock.textContent;
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textArea);
+      
+      const copyBtns = document.querySelectorAll('.copy-btn');
+      const reactCopyBtn = copyBtns[1];
+      const originalText = reactCopyBtn.textContent;
+      reactCopyBtn.textContent = 'ری ایکٹ کوڈ کاپی ہو گیا!';
+      setTimeout(() => {
+        reactCopyBtn.textContent = originalText;
+      }, 2000);
+    }
+
+    // رنگ تبدیل کرنے کا فنکشن
+    document.querySelectorAll('input[name="color"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        document.body.style.color = this.value;
+        document.querySelectorAll('h1, h2, h3, .subtitle, .copy-btn, .step-number, .scroll-to-top').forEach(el => {
+          if (el.classList.contains('scroll-to-top')) {
+            el.style.background = this.value;
+            el.style.boxShadow = `0 0 20px ${this.value}80`;
+          } else if (el.classList.contains('copy-btn')) {
+            el.style.background = this.value;
+          } else if (el.classList.contains('step-number')) {
+            el.style.background = this.value;
+          } else {
+            el.style.color = this.value;
+            el.style.textShadow = `0 0 10px ${this.value}`;
+          }
+        });
+        
+        document.querySelectorAll('.demo-section, .code-section, .explanation, .summary, .react-section').forEach(el => {
+          el.style.boxShadow = `0 0 20px ${this.value}20`;
+        });
+        
+        document.querySelectorAll('.step').forEach(el => {
+          el.style.borderRightColor = this.value;
+        });
+      });
+    });
+
+    // اوپر جانے کا فنکشن
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // صفحہ لوڈ ہوتے ہی ایفیکٹ شروع کرو
+    window.onload = typeEffect;
+  </script>
+</body>
+</html>
