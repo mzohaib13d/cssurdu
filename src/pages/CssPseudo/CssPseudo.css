@@ -1,0 +1,1047 @@
+/* CssPseudo.css - Responsive CSS for CSS Pseudo-elements Tutorial */
+
+.css-pseudo-container {
+  direction: rtl;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+/* ============================================= */
+/* ONLY CHANGED SIDEBAR CLASSES - REST IS YOUR ORIGINAL */
+/* ============================================= */
+
+/* Mobile Menu Toggle - UPDATED CLASS NAME ONLY */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 12px;
+  cursor: pointer;
+  z-index: 1001;
+  font-size: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: white;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+.close-sidebar {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff4757;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  z-index: 1002;
+  font-size: 14px;
+}
+
+/* Sidebar - UPDATED CLASS NAME ONLY */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 280px;
+  background: white;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  padding: 50px 20px 20px;
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Overlay - UPDATED CLASS NAME ONLY */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.sidebar.open + .sidebar-overlay {
+  display: block;
+}
+
+/* YOUR ORIGINAL CODE CONTINUES EXACTLY AS YOU HAD IT */
+/* Top Button */
+.top-btn {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.top-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 2.5em;
+}
+
+.header p {
+  color: #666;
+  font-size: 1.2em;
+}
+
+/* Table of Contents */
+.toc-section {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.toc-section h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.toc-item {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.toc-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.toc-number {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Example Sections */
+.example-section {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.example-section h2 {
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
+  font-size: 1.8em;
+}
+
+.description {
+  color: #555;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border-right: 4px solid #667eea;
+}
+
+/* Demo Container */
+.demo-container {
+  background: #2c3e50;
+  padding: 30px;
+  border-radius: 10px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.demo-container h3 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+.demo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+}
+
+/* Code Container */
+.code-container {
+  margin: 20px 0;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 0;
+  background: #f8f9fa;
+  overflow: hidden;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #f0f0f0;
+  border-bottom: 1px solid #e0e0e0;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.code-header h3 {
+  color: #1a1a1a !important;
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/* Copy Button */
+.copy-btn {
+  background: #4caf50 !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 5px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.copy-btn:hover {
+  background: #45a049 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.copy-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* Code Block */
+.code-block {
+  text-align: left;
+  direction: ltr;
+  background: #1e1e1e;
+  border-radius: 0;
+  overflow-x: auto;
+  margin: 0;
+  padding: 20px;
+  color: #d4d4d4;
+  font-family: "Courier New", monospace;
+  font-size: 15px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.footer p {
+  color: #555;
+  font-size: 1.1em;
+  margin: 10px 0;
+}
+
+/* ============================================
+   BUTTON STYLES FOR ALL 10 EXAMPLES
+   ============================================ */
+
+/* Example 1: Love Button */
+.love-btn {
+  padding: 12px 24px;
+  font-size: 18px;
+  background: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.love-btn::before {
+  content: "💖 ";
+}
+
+.love-btn::after {
+  content: " 💕";
+}
+
+.love-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+
+/* Example 2: Glow Button */
+.glow-btn {
+  position: relative;
+  padding: 12px 24px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.glow-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 70%);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.glow-btn:hover::before {
+  opacity: 1;
+  transform: scale(1.5);
+}
+
+/* Example 3: Border Button */
+.border-btn {
+  position: relative;
+  padding: 12px 36px;
+  background: none;
+  color: #00e6e6;
+  font-size: 18px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.border-btn::before,
+.border-btn::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #00e6e6;
+  transition: 0.4s;
+}
+
+.border-btn::before {
+  top: 0;
+  left: -100%;
+}
+
+.border-btn::after {
+  bottom: 0;
+  right: -100%;
+}
+
+.border-btn:hover::before {
+  left: 0;
+}
+
+.border-btn:hover::after {
+  right: 0;
+}
+
+/* Example 4: Rotate Button */
+/* ROTATING BORDER BUTTON - CORRECTED VERSION */
+.rotate-btn {
+  position: relative;
+  padding: 14px 36px;
+  font-size: 20px;
+  color: #00ffcc;
+  background: #111;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.rotate-btn::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  background: linear-gradient(45deg, #00fff0, #ff00c3, #00fff0, #ff00c3, #00fff0);
+  background-size: 400% 400%;
+  border-radius: 10px;
+  z-index: -1;
+  animation: rotateBorder 3s linear infinite;
+}
+
+.rotate-btn::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: #111;
+  border-radius: 6px;
+  z-index: -1;
+}
+
+@keyframes rotateBorder {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.rotate-btn:hover {
+  color: white;
+  transform: scale(1.15);
+}
+
+.rotate-btn:active {
+  transform: scale(0.95);
+}
+
+/* Example 5: Neon Button */
+.neon-btn {
+  position: relative;
+  padding: 14px 40px;
+  background: #0a0a0a;
+  color: #0ff;
+  border: 2px solid #0ff;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.neon-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0, 255, 255, 0.7), transparent);
+  transform: skewX(-20deg);
+}
+
+.neon-btn:hover::before {
+  animation: sweep 0.8s ease-in-out;
+}
+
+@keyframes sweep {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Example 6: Double Sliding Button */
+/* For Button 2 */
+.btn2 {
+  font-size: 24px;
+  font-weight: bold;
+  z-index: 1;
+  width: 200px;
+  height: 50px;
+  background-color: #fff;
+  border: 2px solid blue;
+  border-radius: 10px;
+  color: blue;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1),
+    /* Light shadow */ 0px 8px 15px rgba(0, 0, 0, 0.15),
+    /* Slightly darker shadow */ 0px 12px 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+ .btn2::before {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensures the background covers the button */
+  background: red;
+  position: absolute;
+  z-index: -1;
+  transform: translateX(-90%);
+  transition: 0.5s all ease;
+}
+ .btn2:hover::before {
+  transform: translateX(-50%);
+}
+ .btn2::after {
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Ensures the background covers the button */
+  background: red;
+  position: absolute;
+  z-index: -1;
+  transform: translateX(90%);
+  transition: 0.5s all ease;
+}
+ .btn2:hover::after {
+  transform: translateX(50%);
+}
+ .btn2:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2),
+    /* Deepened shadows on hover */ 0px 10px 18px rgba(0, 0, 0, 0.25),
+    0px 14px 24px rgba(0, 0, 0, 0.3);
+  color: #fff;
+  border-color: #fff;
+}
+ .btn2:active {
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1),
+    /* Reduced shadow */ 0px 4px 8px rgba(0, 0, 0, 0.15); /* Lighter shadow */
+  transform: translateY(8px); /* Moves the button down 8px */
+}
+
+/* Example 7: Liquid Button */
+.liquid-btn {
+  position: relative;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: blue;
+  border: 3px solid blue;
+  border-radius: 10px;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.4s ease;
+  z-index: 1;
+}
+
+.liquid-btn::before {
+  content: "";
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #00aaff, #0066ff);
+  transition: all 0.6s ease;
+  z-index: -1;
+  border-radius: 0 0 50% 50%;
+}
+
+.liquid-btn:hover::before {
+  bottom: 0;
+  border-radius: 0;
+}
+
+.liquid-btn:hover {
+  color: white;
+}
+
+/* Example 8: Fire Button */
+.fire-btn {
+  position: relative;
+  padding: 15px 40px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: #ff6600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  overflow: hidden;
+}
+
+.fire-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 200, 0, 0.6), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fire-btn:hover::before {
+  opacity: 1;
+  animation: flame 1s infinite alternate;
+}
+
+@keyframes flame {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* Example 9: Electric Button */
+.electric-btn {
+  position: relative;
+  padding: 15px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #0ff;
+  background: transparent;
+  border: 2px solid #0ff;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px #0ff;
+  overflow: hidden;
+}
+
+.electric-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0, 255, 255, 0.7), transparent);
+  transition: 0.5s;
+}
+
+.electric-btn:hover::before {
+  left: 100%;
+}
+
+.electric-btn:hover {
+  color: #fff;
+  box-shadow: 0 0 10px #0ff, 0 0 30px #0ff, 0 0 60px #0ff;
+  border-color: #fff;
+}
+
+/* Example 10: Rainbow Button */
+.rainbow-btn {
+  position: relative;
+  padding: 15px 50px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.rainbow-btn::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  background: linear-gradient(45deg, red, orange, yellow, green, cyan, blue, violet, red);
+  background-size: 400%;
+  border-radius: 14px;
+  z-index: -1;
+  filter: blur(8px);
+  animation: rainbowGlow 5s linear infinite;
+}
+
+@keyframes rainbowGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - TABLET (768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .css-pseudo-container {
+    padding: 15px;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 2em;
+  }
+
+  .header p {
+    font-size: 1.1em;
+  }
+
+  .toc-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .toc-item {
+    padding: 12px;
+    font-size: 0.95em;
+  }
+
+  .example-section {
+    padding: 20px;
+  }
+
+  .example-section h2 {
+    font-size: 1.5em;
+  }
+
+  .description {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  .demo-container {
+    padding: 20px;
+  }
+
+  .code-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .code-block {
+    font-size: 13px;
+    padding: 15px;
+  }
+
+  .top-btn {
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    font-size: 12px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE (430px)
+   ============================================ */
+@media (max-width: 430px) {
+  .css-pseudo-container {
+    padding: 12px;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: 1.8em;
+    margin-bottom: 8px;
+  }
+
+  .header p {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .toc-section, .example-section, .footer {
+    padding: 20px;
+  }
+
+  .toc-section h2, .example-section h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+
+  .toc-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .toc-item {
+    padding: 12px;
+    font-size: 0.9em;
+  }
+
+  .description {
+    padding: 15px;
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .demo-container {
+    padding: 25px;
+    min-height: 120px;
+  }
+
+  .code-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .code-header h3 {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  .copy-btn {
+    width: 100%;
+    padding: 10px !important;
+    font-size: 13px !important;
+  }
+
+  .code-block {
+    font-size: 12px;
+    padding: 12px;
+  }
+
+  .top-btn {
+    bottom: 15px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+    font-size: 11px;
+  }
+
+  /* Show mobile menu button on small screens - UPDATED CLASS ONLY */
+  .sidebar-toggle {
+    display: block;
+  }
+  
+  .close-sidebar {
+    display: block;
+  }
+}
+
+@media (max-width: 390px) {
+  .css-pseudo-container {
+    padding: 10px;
+  }
+
+  .header {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 1.6em;
+  }
+
+  .header p {
+    font-size: 0.95em;
+  }
+
+  .toc-section, .example-section, .footer {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .toc-section h2, .example-section h2 {
+    font-size: 1.4em;
+  }
+
+  .toc-item {
+    padding: 10px;
+    font-size: 0.85em;
+  }
+
+  .description {
+    padding: 12px;
+    margin-bottom: 15px;
+    font-size: 0.95em;
+  }
+
+  .demo-container {
+    padding: 20px;
+    min-height: 100px;
+    margin: 15px 0;
+  }
+
+  .code-header h3 {
+    font-size: 1.1em;
+  }
+
+  .copy-btn {
+    padding: 8px !important;
+    font-size: 12px !important;
+  }
+
+  .code-block {
+    font-size: 11px;
+    padding: 10px;
+  }
+
+  .top-btn {
+    bottom: 12px;
+    left: 12px;
+    width: 40px;
+    height: 40px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 375px) {
+  .css-pseudo-container {
+    padding: 8px;
+  }
+
+  .header {
+    padding: 12px;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+  }
+
+  .header p {
+    font-size: 0.9em;
+  }
+
+  .toc-section, .example-section, .footer {
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .toc-section h2, .example-section h2 {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+  }
+
+  .toc-grid {
+    gap: 8px;
+  }
+
+  .toc-item {
+    padding: 8px 10px;
+    font-size: 0.8em;
+    border-radius: 8px;
+  }
+
+  .description {
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+  .demo-container {
+    padding: 15px;
+    min-height: 80px;
+    border-radius: 8px;
+  }
+
+  .code-block {
+    font-size: 10px;
+    padding: 8px;
+  }
+
+  .copy-btn {
+    padding: 6px !important;
+    font-size: 11px !important;
+  }
+
+  .top-btn {
+    bottom: 10px;
+    left: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 9px;
+    border-radius: 50%;
+  }
+}
