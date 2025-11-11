@@ -30,26 +30,22 @@ A complete learning resource covering **core CSS concepts**, **modern layout sys
 /* Comprehensive coverage of all display values */
 display: block | inline | inline-block | flex | grid | none;
 2️⃣ CSS Positioning
-css
-Copy code
+
 /* Master the position property */
 position: static | relative | absolute | fixed | sticky;
 3️⃣ CSS Pseudo-elements
-css
-Copy code
+
 /* Creative uses of ::before and ::after */
 .element::before { 
   content: "🎨"; 
 }
 4️⃣ CSS Grid System
-css
-Copy code
+
 /* Modern layout system */
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 5️⃣ Flexbox Layouts
-css
-Copy code
+
 /* Flexible box model */
 display: flex;
 justify-content: center;
