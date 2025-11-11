@@ -1,3 +1,6 @@
+/* === پوپنز فونٹ امپورٹ === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* === بنیادی ریسیٹ === */
 * {
   margin: 0;
@@ -24,6 +27,62 @@ margin-bottom: 1.5rem ! important;
   margin: 0 auto;
   padding: 20px;
   background: #ffffff;
+}
+
+/* ========== COMPACT STYLING FOR MEDIUM SCREENS ========== */
+@media (max-width: 1366px) {
+  .css-grid-tutorial {
+    max-width: 1000px;
+    padding: 15px;
+  }
+  
+  .tutorial-header {
+    padding: 2.5rem 1.5rem;
+  }
+  
+  .tutorial-header h1 {
+    font-size: 2.4rem;
+  }
+  
+  .tutorial-header p {
+    font-size: 1.1rem;
+  }
+  
+  .tutorial-section {
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .tutorial-section h2 {
+    font-size: 1.6rem;
+  }
+  
+  .tutorial-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .tutorial-section p {
+    font-size: 1rem;
+  }
+  
+  .concepts-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.8rem;
+  }
+  
+  .code-content {
+    font-size: 0.9rem;
+    padding: 1.2rem;
+  }
+  
+  .comparison-table th,
+  .comparison-table td {
+    padding: 0.8rem;
+  }
+  
+  .achievement-section {
+    padding: 3rem 1.5rem;
+  }
 }
 
 /* === ہیڈر اسٹائلز === */

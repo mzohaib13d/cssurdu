@@ -71,6 +71,55 @@ body {
     display: none;
   }
 }
+
+/* ========== COMPACT DESKTOP (1366px) ========== */
+@media (max-width: 1366px) {
+  .sidebar {
+    width: 260px;
+    padding: 18px;
+  }
+  
+  .sidebar-header {
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+  
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  
+  .logo-text h2 {
+    font-size: 1.15rem;
+  }
+  
+  .logo-text p {
+    font-size: 0.8rem;
+  }
+  
+  .sidebar-nav a,
+  .chapter-link {
+    padding: 14px;
+  }
+  
+  .chapter-content {
+    gap: 10px;
+  }
+  
+  .chapter-emoji {
+    font-size: 1.1rem;
+  }
+  
+  .chapter-title {
+    font-size: 0.85rem;
+  }
+  
+  .sidebar-footer {
+    padding: 18px;
+  }
+}
+
 /* ========== MOBILE BEHAVIOR ========== */
 @media (max-width: 768px) {
   .sidebar {

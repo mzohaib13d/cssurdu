@@ -10,6 +10,71 @@
   line-height: 1.6;
 }
 
+/* ========== COMPACT STYLING FOR MEDIUM SCREENS ========== */
+@media (max-width: 1366px) {
+  .css-display-container {
+    max-width: 1000px;
+    padding: 15px;
+  }
+  
+  .header {
+    padding: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2em;
+  }
+  
+  .header p {
+    font-size: 1em;
+  }
+  
+  .example-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+  }
+  
+  .properties-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 15px;
+  }
+  
+  .example-card,
+  .property-card {
+    padding: 18px;
+  }
+  
+  .explanation-section,
+  .biscuit-example,
+  .visual-guide,
+  .animation-section {
+    padding: 18px;
+  }
+  
+  .scrollable-table th {
+    padding: 12px 15px;
+    font-size: 0.95em;
+  }
+  
+  .scrollable-table td {
+    padding: 10px 15px;
+    font-size: 0.9em;
+  }
+  
+  .code-block pre {
+    font-size: 13px;
+    padding: 15px;
+  }
+  
+  .most-used {
+    padding: 20px;
+  }
+  
+  .most-used h2 {
+    font-size: 1.6em;
+  }
+}
+
 /* ===== BEAUTIFUL TABLES STYLING ===== */
 .comparison-section {
   margin: 25px 0;
@@ -192,8 +257,6 @@
   margin-bottom: 10px;
   opacity: 0.9;
 }
-
-
 
 .subtitle {
   font-size: 1.1em !important;
@@ -807,4 +870,3 @@
 .list-item-demo {
   text-align: center;
 }
-

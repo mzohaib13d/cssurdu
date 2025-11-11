@@ -10,6 +10,71 @@
   overflow-x: hidden;
 }
 
+/* ========== COMPACT STYLING FOR MEDIUM SCREENS ========== */
+@media (max-width: 1366px) {
+  .navbar-container {
+    max-width: 1000px !important;
+    padding: 15px;
+  }
+  
+  .navbar-header {
+    padding: 20px 15px;
+  }
+  
+  .navbar-header h1 {
+    font-size: 1.8em;
+  }
+  
+  .navbar-header p {
+    font-size: 1em;
+  }
+  
+  .demo-section,
+  .code-display,
+  .explanation,
+  .results-section,
+  .summary-section {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+  
+  .demo-section h2,
+  .code-display h2,
+  .explanation h2,
+  .results-section h2,
+  .summary-section h2 {
+    font-size: 1.4em;
+  }
+  
+  .code-block pre {
+    font-size: 14px;
+    padding: 15px;
+  }
+  
+  .explanation-item {
+    padding: 16px;
+  }
+  
+  .explanation-item p {
+    font-size: 1em;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+  }
+  
+  .summary-table table {
+    min-width: 500px;
+  }
+  
+  .summary-table th,
+  .summary-table td {
+    padding: 12px 15px;
+    font-size: 0.95em;
+  }
+}
+
 /* Header */
 .navbar-header {
 background: linear-gradient(135deg, #7890f8 0%, #764ba2 100%);

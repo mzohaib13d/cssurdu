@@ -8,6 +8,59 @@
   line-height: 1.6;
 }
 
+/* ========== COMPACT STYLING FOR MEDIUM SCREENS ========== */
+@media (max-width: 1366px) {
+  .css-display-container {
+    max-width: 1000px !important;
+    padding: 15px;
+  }
+  
+  .header {
+    padding: 30px 15px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .header p {
+    font-size: 1.1rem;
+  }
+  
+  .explanation-section, .example-section {
+    padding: 22px;
+    margin-bottom: 22px;
+  }
+  
+  .explanation-section h3, .example-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .code-block pre {
+    font-size: 0.82rem;
+    padding: 16px;
+  }
+  
+  .demo-container {
+    padding: 20px;
+  }
+  
+  .summary-section {
+    padding: 30px 25px;
+  }
+  
+  .summary-card {
+    padding: 20px;
+    min-width: 240px;
+  }
+  
+  .scrollable-table th,
+  .scrollable-table td {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+}
+
 /* Header Styles */
 .header {
   text-align: center;

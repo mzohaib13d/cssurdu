@@ -10,6 +10,77 @@
   overflow-x: hidden;
 }
 
+/* ========== COMPACT STYLING FOR MEDIUM SCREENS ========== */
+@media (max-width: 1366px) {
+  .css-position-container {
+    max-width: 1000px;
+    padding: 15px;
+  }
+  
+  .header {
+    padding: 20px 15px;
+  }
+  
+  .header h1 {
+    font-size: 1.8em;
+  }
+  
+  .header p {
+    font-size: 1em;
+  }
+  
+  .section {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+  
+  .section h2 {
+    font-size: 1.4em;
+  }
+  
+  .example-card {
+    padding: 20px;
+  }
+  
+  .example-card h3 {
+    font-size: 1.2em;
+  }
+  
+  .code-block pre {
+    font-size: 12px;
+    padding: 15px;
+  }
+  
+  .properties-table {
+    min-width: 500px;
+  }
+  
+  .properties-table th,
+  .properties-table td {
+    padding: 12px 14px;
+    font-size: 0.9em;
+  }
+  
+  .demo-container {
+    padding: 18px;
+  }
+  
+  .parent-box {
+    width: 250px;
+    height: 130px;
+  }
+  
+  .card {
+    width: 250px;
+    height: 170px;
+  }
+  
+  .tips-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+  }
+}
+
 /* ============================================= */
 /* SIDEBAR CLASSES - YOUR ORIGINAL */
 /* ============================================= */

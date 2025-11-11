@@ -10,6 +10,64 @@
   min-height: 100vh;
 }
 
+/* ========== COMPACT STYLING FOR MEDIUM SCREENS ========== */
+@media (max-width: 1366px) {
+  .css-pseudo-container {
+    max-width: 1000px;
+    padding: 15px;
+  }
+  
+  .header {
+    padding: 22px;
+  }
+  
+  .header h1 {
+    font-size: 2em;
+  }
+  
+  .header p {
+    font-size: 1.05em;
+  }
+  
+  .toc-section, .example-section, .footer {
+    padding: 22px;
+    margin-bottom: 22px;
+  }
+  
+  .toc-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  
+  .toc-item {
+    padding: 12px;
+    font-size: 0.9em;
+  }
+  
+  .example-section h2 {
+    font-size: 1.5em;
+  }
+  
+  .description {
+    padding: 15px;
+    font-size: 1em;
+  }
+  
+  .demo-container {
+    padding: 20px;
+  }
+  
+  .code-block {
+    font-size: 13px;
+    padding: 15px;
+  }
+  
+  .copy-btn {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+}
+
 /* ============================================= */
 /* ONLY CHANGED SIDEBAR CLASSES - REST IS YOUR ORIGINAL */
 /* ============================================= */
