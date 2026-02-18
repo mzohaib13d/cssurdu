@@ -63,6 +63,13 @@ const Sidebar = () => {
       title: "Pseudo Elements",
       emoji: "✨",
       path: "/css-pseudo",
+    },
+    // NEW CHAPTER ADDED HERE - Cubic Bezier
+    {
+      id: "css-cubic-bezier",
+      title: "Cubic Bezier",
+      emoji: "📈",
+      path: "/css-cubic-bezier",
     }
   ];
 
@@ -136,9 +143,9 @@ const Sidebar = () => {
             <h3>فہرست ابواب</h3>
             <div className="progress-indicator">
               <div className="progress-bar">
-                <div className="progress-fill" style={{ width: "50%" }}></div>
+                <div className="progress-fill" style={{ width: "60%" }}></div>
               </div>
-              <span>50% مکمل</span>
+              <span>60% مکمل</span>
             </div>
           </div>
 
@@ -212,6 +219,14 @@ const Sidebar = () => {
                     </Link>
                   </div>
                 )}
+
+                {/* New sentence below Cubic Bezier button */}
+                {/* New sentence below Cubic Bezier button */}
+{chapter.id === "css-cubic-bezier" && (
+  <div className="cubic-bezier-note" dir="rtl">
+     پانچ ماڈرن &nbsp; animations &nbsp; کے ساتھ
+  </div>
+)}
               </li>
             ))}
           </ul>

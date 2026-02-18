@@ -3,5 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/cssurdu/',
+  base: './',  // Important for Firebase hosting
+  build: {
+    outDir: 'dist',  // Make sure this matches firebase.json
+    emptyOutDir: true
+  }
 })

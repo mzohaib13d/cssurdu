@@ -8,6 +8,7 @@ import CssPseudo from "./pages/CssPseudo/CssPseudo";
 import CssDisplay from "./pages/CssDisplay/CssDisplay";
 import DisplayFlex from "./pages/CssDisplay/DisplayFlex";
 import CssDisplayGrid from "./pages/CssDisplay/CssDisplayGrid";
+import CssCubicBezier from "./pages/CssCubicBezier/CubicBezier";  
 import CssResponsiveBar from "./pages/CssResponsiveBar/CssResponsiveBar";
 import CssResponsiveBarCss from "./pages/CssResponsiveBar/CssResponsiveBarCss";
 import CssResponsiveBarJs from "./pages/CssResponsiveBar/CssResponsiveBarJs";
@@ -86,7 +87,10 @@ function App() {
               path="/css-responsive-bar/js"
               element={<CssResponsiveBarJs />}
             />
-            
+            <Route 
+            path="/css-cubic-bezier" 
+            element={<CssCubicBezier />} /> 
+
             {/* Fallback route */}
             <Route path="*" element={<Homepage />} />
           </Routes>
