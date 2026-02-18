@@ -345,30 +345,137 @@
 }
 
 /* Quick reference table */
-.bezier-table {
+/* Responsive wrapper for the table */
+.cubic-section {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Table container */
+.cubic-section .bezier-table {
   width: 100%;
   border-collapse: collapse;
   background: #1e2738;
   border-radius: 20px;
   overflow: hidden;
   margin: 20px 0;
+  table-layout: auto; /* Let content determine width, but with protections */
 }
 
-.bezier-table th {
+/* Table header */
+.cubic-section .bezier-table th {
   background: #f39c12;
   color: #1d1d1d;
   font-size: 1.3rem;
   padding: 15px;
+  text-align: left; /* Adjust as needed */
 }
 
-.bezier-table td {
+/* Table cells */
+.cubic-section .bezier-table td {
   padding: 15px;
   border-bottom: 2px solid #ffb45b;
   font-size: 1.1rem;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto; /* Optional: adds hyphens when breaking words */
 }
 
-.bezier-table tr:hover {
-  background: #2e3a52;
+/* Style for code blocks inside table */
+.cubic-section .bezier-table td code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  white-space: normal; /* Allow code to wrap */
+  word-break: break-all; /* Break long code strings */
+  display: inline-block;
+  max-width: 100%;
+}
+
+/* Copy button styling */
+.cubic-section .bezier-table .copy-small {
+  background: #f39c12;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.cubic-section .bezier-table .copy-small:hover {
+  background: #ffb45b;
+  transform: scale(1.05);
+}
+
+/* Column width management */
+.cubic-section .bezier-table th:nth-child(1),
+.cubic-section .bezier-table td:nth-child(1) {
+  width: 35%; /* Effect column */
+}
+
+.cubic-section .bezier-table th:nth-child(2),
+.cubic-section .bezier-table td:nth-child(2) {
+  width: 50%; /* Bezier code column - needs more space */
+}
+
+.cubic-section .bezier-table th:nth-child(3),
+.cubic-section .bezier-table td:nth-child(3) {
+  width: 15%; /* Copy button column */
+  text-align: center;
+}
+
+/* Responsive design for mobile */
+@media screen and (max-width: 768px) {
+  .cubic-section .bezier-table th {
+    font-size: 1.1rem;
+    padding: 12px 8px;
+  }
+  
+  .cubic-section .bezier-table td {
+    padding: 12px 8px;
+    font-size: 0.95rem;
+  }
+  
+  .cubic-section .bezier-table td code {
+    font-size: 0.85rem;
+    padding: 3px 6px;
+  }
+}
+
+/* For very small screens - make it scroll horizontally */
+@media screen and (max-width: 480px) {
+  .cubic-section {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .cubic-section .bezier-table {
+    min-width: 400px; /* Ensures table doesn't compress too much */
+  }
+  
+  .cubic-section .bezier-table th,
+  .cubic-section .bezier-table td {
+    white-space: normal; /* Allow wrapping */
+  }
+  
+  /* Adjust column widths for mobile */
+  .cubic-section .bezier-table th:nth-child(1),
+  .cubic-section .bezier-table td:nth-child(1) {
+    width: 30%;
+  }
+  
+  .cubic-section .bezier-table th:nth-child(2),
+  .cubic-section .bezier-table td:nth-child(2) {
+    width: 55%;
+  }
+  
+  .cubic-section .bezier-table th:nth-child(3),
+  .cubic-section .bezier-table td:nth-child(3) {
+    width: 15%;
+  }
 }
 
 /* Beginner rule box */
