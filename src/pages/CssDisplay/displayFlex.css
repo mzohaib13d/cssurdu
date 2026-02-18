@@ -1,0 +1,1041 @@
+/* displayFlex.css */
+
+.css-display-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+/* ========== COMPACT STYLING FOR MEDIUM SCREENS ========== */
+@media (max-width: 1366px) {
+  .css-display-container {
+    max-width: 1000px !important;
+    padding: 15px;
+  }
+  
+  .header {
+    padding: 30px 15px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .header p {
+    font-size: 1.1rem;
+  }
+  
+  .explanation-section, .example-section {
+    padding: 22px;
+    margin-bottom: 22px;
+  }
+  
+  .explanation-section h3, .example-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .code-block pre {
+    font-size: 0.82rem;
+    padding: 16px;
+  }
+  
+  .demo-container {
+    padding: 20px;
+  }
+  
+  .summary-section {
+    padding: 30px 25px;
+  }
+  
+  .summary-card {
+    padding: 20px;
+    min-width: 240px;
+  }
+  
+  .scrollable-table th,
+  .scrollable-table td {
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.subtitle {
+  font-size: 1rem !important;
+  font-style: italic;
+  opacity: 0.8 !important;
+}
+
+/* Copy Confirmation */
+.copy-confirmation {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.confirmation-box {
+  background: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: slideIn 0.3s ease-out;
+}
+
+.tick-mark {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.urdu-text {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Section Styles */
+.flexbox-comprehensive {
+  margin-top: 50px;
+}
+
+.flexbox-comprehensive h2 {
+  text-align: center;
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.explanation-section, .example-section {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border-left: 5px solid #667eea;
+}
+
+.explanation-section h3, .example-section h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.explanation-section p, .example-section p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+/* Code Section Styles */
+.code-section {
+  background: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2d2d2d;
+  padding: 15px 20px;
+  border-bottom: 1px solid #404040;
+}
+
+.code-header span {
+  color: #fff;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.copy-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.copy-btn:hover {
+  background: #45a049;
+  transform: translateY(-1px);
+}
+
+.code-block {
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  color: #d4d4d4;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Demo Container Styles */
+.demo-container {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 25px;
+  margin: 20px 0;
+  border: 2px solid #e9ecef;
+}
+ .whitehead p {
+  text-align: center;
+  font-size: 1.4rem !important;
+  color: #fff !important;
+  margin-bottom: 25px !important;
+  opacity: "0.9" !important;
+}
+.css-display-container .whitehead h2 {
+  text-align: center !important;
+  font-size: 2rem !important;
+  color: #fff;
+  margin-bottom: 15px !important;
+  background: transparent;
+  text-shadow: 0 0 1px #fff, 0 0 2px #fff !important; /* Force white appearance */
+}
+
+.demo-container h4 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 10px;
+}
+
+.live-demo {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #dee2e6;
+  margin-bottom: 15px;
+}
+
+.demo-explanation {
+  background: #e7f3ff;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #2196F3;
+}
+
+.demo-explanation p {
+  margin: 0;
+  color: #1565c0;
+  font-weight: 500;
+}
+
+.demo-item {
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.demo-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.demo-item h5 {
+  color: #495057;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Comparison Section */
+.comparison-section {
+  margin: 25px 0;
+}
+
+.table-container {
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.scrollable-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 600px;
+}
+
+.scrollable-table th {
+  background: #667eea;
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.scrollable-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e9ecef;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.scrollable-table tr:hover {
+  background: #f8f9fa;
+}
+
+.scrollable-table code {
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Consolas', monospace;
+  font-size: 0.85rem;
+  color: #495057;
+}
+
+/* Summary Section */
+.summary-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 15px;
+  margin-top: 40px;
+}
+
+.summary-section h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.summary-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.summary-card {
+  flex: 1;
+  min-width: 250px;
+  background: rgba(255,255,255,0.1);
+  padding: 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.summary-card h4 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: white;
+  border-bottom: 2px solid rgba(255,255,255,0.3);
+  padding-bottom: 8px;
+}
+
+.summary-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.summary-card li {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.9rem;
+}
+
+.summary-card li:last-child {
+  border-bottom: none;
+}
+
+.summary-card code {
+  background: rgba(255,255,255,0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Consolas', monospace;
+  font-size: 0.8rem;
+}
+
+/* Quick Examples Grid */
+.quick-examples {
+  margin-bottom: 50px;
+}
+
+.quick-examples h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.example-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .css-display-container {
+    padding: 10px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+  
+  .explanation-section, .example-section {
+    padding: 20px;
+  }
+  
+  .summary-grid {
+    flex-direction: column;
+  }
+  
+  .demo-container {
+    padding: 15px;
+  }
+  
+  .code-block {
+    padding: 15px;
+  }
+  
+  .code-block pre {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 25px 15px;
+  }
+  
+  .header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .flexbox-comprehensive h2 {
+    font-size: 1.8rem;
+  }
+  
+  .confirmation-box {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for interactive elements */
+.code-section, .demo-container, .summary-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.code-section:hover, .demo-container:hover, .summary-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Scrollbar Styling */
+.code-block::-webkit-scrollbar {
+  height: 8px;
+}
+
+.code-block::-webkit-scrollbar-track {
+  background: #2d2d2d;
+  border-radius: 4px;
+}
+
+.code-block::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+.code-block::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+.table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive Design - Additional Mobile Breakpoints */
+@media (max-width: 768px) {
+  .css-display-container {
+    padding: 10px;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+  
+  .explanation-section, .example-section {
+    padding: 20px;
+  }
+  
+  .summary-grid {
+    flex-direction: column;
+  }
+  
+  .demo-container {
+    padding: 15px;
+  }
+  
+  .code-block {
+    padding: 15px;
+  }
+  
+  .code-block pre {
+    font-size: 0.8rem;
+  }
+}
+
+/* 430px Breakpoint */
+@media (max-width: 430px) {
+  .css-display-container {
+    padding: 8px;
+  }
+  
+  .header {
+    padding: 25px 15px;
+    margin-bottom: 25px;
+  }
+  
+  .header h1 {
+    font-size: 1.7rem;
+    margin-bottom: 10px;
+  }
+  
+  .header p {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem !important;
+  }
+  
+  .flexbox-comprehensive h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  
+  .explanation-section, .example-section {
+    padding: 18px;
+    margin-bottom: 20px;
+    border-left: 4px solid #667eea;
+  }
+  
+  .explanation-section h3, .example-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .explanation-section p, .example-section p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .code-section {
+    margin: 15px 0;
+  }
+  
+  .code-header {
+    padding: 12px 15px;
+  }
+  
+  .code-header span {
+    font-size: 0.85rem;
+  }
+  
+  .copy-btn {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .code-block {
+    padding: 12px;
+  }
+  
+  .code-block pre {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .demo-container {
+    padding: 18px;
+    margin: 15px 0;
+  }
+  
+  .demo-container h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .live-demo {
+    padding: 15px;
+  }
+  
+  .demo-explanation {
+    padding: 12px;
+  }
+  
+  .demo-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .demo-item h5 {
+    font-size: 1rem;
+  }
+  
+  .scrollable-table th,
+  .scrollable-table td {
+    padding: 10px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .scrollable-table code {
+    font-size: 0.75rem;
+    padding: 1px 4px;
+  }
+  
+  .summary-section {
+    padding: 25px 20px;
+    margin-top: 30px;
+  }
+  
+  .summary-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .summary-card {
+    padding: 18px;
+    min-width: 100%;
+  }
+  
+  .summary-card h4 {
+    font-size: 1.1rem;
+  }
+  
+  .summary-card li {
+    font-size: 0.85rem;
+    padding: 6px 0;
+  }
+  
+  .confirmation-box {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .urdu-text {
+    font-size: 1rem;
+  }
+}
+
+/* 390px Breakpoint */
+@media (max-width: 390px) {
+  .css-display-container {
+    padding: 6px;
+  }
+  
+  .header {
+    padding: 20px 12px;
+    border-radius: 12px;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header p {
+    font-size: 0.9rem;
+  }
+  
+  .flexbox-comprehensive h2 {
+    font-size: 1.4rem;
+  }
+  
+  .explanation-section, .example-section {
+    padding: 15px;
+    border-radius: 12px;
+  }
+  
+  .explanation-section h3, .example-section h3 {
+    font-size: 1.2rem;
+    gap: 8px;
+  }
+  
+  .code-header {
+    padding: 10px 12px;
+  }
+  
+  .code-block {
+    padding: 10px;
+  }
+  
+  .code-block pre {
+    font-size: 0.7rem;
+  }
+  
+  .demo-container {
+    padding: 15px;
+  }
+  
+  .live-demo {
+    padding: 12px;
+  }
+  
+  .scrollable-table {
+    min-width: 350px;
+  }
+  
+  .scrollable-table th,
+  .scrollable-table td {
+    padding: 8px 10px;
+    font-size: 0.75rem;
+  }
+  
+  .summary-section {
+    padding: 20px 15px;
+    border-radius: 12px;
+  }
+  
+  .summary-section h3 {
+    font-size: 1.3rem;
+  }
+  
+  .summary-card {
+    padding: 15px;
+  }
+  
+  /* Adjust font sizes for very small screens */
+  .explanation-section p, .example-section p {
+    font-size: 0.85rem;
+  }
+  
+  .demo-item h5 {
+    font-size: 0.95rem;
+  }
+  
+  .copy-btn {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+  }
+}
+
+/* 375px Breakpoint - Smallest Mobile Devices */
+@media (max-width: 375px) {
+  .css-display-container {
+    padding: 5px;
+  }
+  
+  .header {
+    padding: 18px 10px;
+    margin-bottom: 20px;
+  }
+  
+  .header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .header p {
+    font-size: 0.85rem;
+  }
+  
+  .subtitle {
+    font-size: 0.8rem !important;
+  }
+  
+  .flexbox-comprehensive {
+    margin-top: 30px;
+  }
+  
+  .flexbox-comprehensive h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .explanation-section, .example-section {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-left: 3px solid #667eea;
+  }
+  
+  .explanation-section h3, .example-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  
+  .code-section {
+    border-radius: 8px;
+  }
+  
+  .code-header span {
+    font-size: 0.8rem;
+  }
+  
+  .code-block pre {
+    font-size: 0.65rem;
+  }
+  
+  .demo-container {
+    padding: 12px;
+    border-radius: 8px;
+  }
+  
+  .demo-container h4 {
+    font-size: 1.1rem;
+    padding-bottom: 8px;
+  }
+  
+  .live-demo {
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+  .demo-explanation {
+    padding: 10px;
+    border-left: 3px solid #2196F3;
+  }
+  
+  .demo-item {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+  
+  .scrollable-table {
+    min-width: 320px;
+  }
+  
+  .scrollable-table th,
+  .scrollable-table td {
+    padding: 6px 8px;
+    font-size: 0.7rem;
+  }
+  
+  .summary-section {
+    padding: 18px 12px;
+    margin-top: 25px;
+  }
+  
+  .summary-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .summary-card {
+    padding: 12px;
+  }
+  
+  .summary-card h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .summary-card li {
+    font-size: 0.8rem;
+    padding: 5px 0;
+  }
+  
+  .confirmation-box {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .tick-mark {
+    font-size: 1.3rem;
+  }
+  
+  .urdu-text {
+    font-size: 0.9rem;
+  }
+  
+  /* Adjust table scroll for very small screens */
+  .table-container {
+    border-radius: 6px;
+  }
+  
+  /* Reduce gaps in flex layouts */
+  .summary-grid {
+    gap: 15px;
+  }
+  
+  /* Ensure text remains readable */
+  .explanation-section p, .example-section p {
+    line-height: 1.5;
+  }
+}
+
+/* Ultra-small devices (below 320px) */
+@media (max-width: 320px) {
+  .css-display-container {
+    padding: 3px;
+  }
+  
+  .header h1 {
+    font-size: 1.3rem;
+  }
+  
+  .header p {
+    font-size: 0.8rem;
+  }
+  
+  .flexbox-comprehensive h2 {
+    font-size: 1.2rem;
+  }
+  
+  .code-block pre {
+    font-size: 0.6rem;
+  }
+  
+  .scrollable-table {
+    min-width: 280px;
+  }
+}
+
+/* Touch device optimizations */
+@media (max-width: 430px) and (hover: none) {
+  .copy-btn {
+    padding: 10px 16px; /* Larger touch target */
+    font-size: 0.8rem;
+  }
+  
+  .code-section, .demo-container, .summary-card {
+    transition: none; /* Remove hover effects on touch devices */
+  }
+}
+
+/* Portrait mode optimizations */
+@media (max-width: 430px) and (orientation: portrait) {
+  .demo-container {
+    margin: 12px 0;
+  }
+  
+  .example-section {
+    margin-bottom: 18px;
+  }
+}
+
+/* Landscape mode optimizations for small screens */
+@media (max-width: 430px) and (orientation: landscape) {
+  .header {
+    padding: 15px 20px;
+  }
+  
+  .header h1 {
+    font-size: 1.4rem;
+  }
+  
+  .explanation-section, .example-section {
+    padding: 15px;
+  }
+}
+
+/* High DPI screen optimizations */
+@media (max-width: 430px) and (-webkit-min-device-pixel-ratio: 2) {
+  .code-block pre {
+    font-size: 0.8rem; /* Slightly larger text for retina */
+  }
+  
+  .explanation-section p, .example-section p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Print styles for mobile */
+@media (max-width: 430px), print {
+  .css-display-container {
+    padding: 0;
+  }
+  
+  .header {
+    background: #667eea !important;
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+  
+  .copy-btn {
+    display: none;
+  }
+}
